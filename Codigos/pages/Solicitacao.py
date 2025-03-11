@@ -187,7 +187,7 @@ elif st.session_state.SITUACAO_USUARIO == 'Devolução':
         st.success("✅ Solicitação registrada com sucesso!")
         st.write("Favor devolver o livro na estante da Biblioteca Expertise")
 
-    elif st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'] != st.session_state.LOGIN:
+    elif st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.LOGIN != st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO']:
         st.warning("❌ Você não pode devolver um livro que se encontra emprestado por outro login.")
             
     else:
