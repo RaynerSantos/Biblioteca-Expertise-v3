@@ -108,6 +108,7 @@ if input_buttom_submit:
     if ((df_logins['LOGIN'] == LOGIN) & (df_logins['SENHA'] == SENHA)).any():
         st.session_state.login_sucesso = True  # Define o estado do login como verdadeiro
         st.session_state.LOGIN = LOGIN  # Salva o usuário na sessão
+        st.session_state.SENHA = SENHA # Salva a senha do usuário na sessão
         st.rerun()  # Recarrega a página para aplicar a mudança
     else:
         st.warning("❌ Login ou senha incorretos!")
