@@ -99,7 +99,7 @@ if "solicitacao_admin" not in st.session_state:
 # Título da nova página
 st.title("Biblioteca Expertise")
 st.write("")  # Linha vazia
-st.write(f"Bem-vindo, **{st.session_state.LOGIN}**!")
+st.write(f"Bem-vindo, **{st.session_state.LOGIN}**! 😊")
 st.write("")  # Linha vazia
 st.write("📚 Lista de livros (Disponível / Emprestado)")
 

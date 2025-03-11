@@ -141,9 +141,9 @@ if st.session_state.solicitacao_admin:
                     TITULO=st.session_state.TITULO, 
                     AUTOR=st.session_state.AUTOR)
     
-    st.write(f"Usuário: **{st.session_state.LOGIN}**")
-    st.write(f"Título: **{st.session_state.TITULO}**")
-    st.write(f"Autor: **{st.session_state.AUTOR}**")
-    st.write(f"Ação: **Inserção de novo livro**")
+    st.write(f"📌 Usuário: **{st.session_state.LOGIN}**")
+    st.write(f"📌 Título: **{st.session_state.TITULO}**")
+    st.write(f"📌 Autor: **{st.session_state.AUTOR}**")
+    st.write(f"📌 Ação: **Inserção de novo livro**")
 
     st.success("✅ Solicitação registrada com sucesso!")

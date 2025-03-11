@@ -163,28 +163,28 @@ if st.session_state.SITUACAO_USUARIO == 'Empréstimo' and st.session_state.dados
                           SITUACAO='Emprestado', 
                           ID_LIVRO=st.session_state.ID_LIVRO, 
                           data=st.session_state.dados)
-    st.write(f"Usuário: **{st.session_state.LOGIN}**")
-    st.write(f"ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
-    st.write(f"Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
-    st.write(f"Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
-    st.write(f"Ação: **{st.session_state.SITUACAO_USUARIO}**")
+    st.write(f"📌 Usuário: **{st.session_state.LOGIN}**")
+    st.write(f"📌 ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
+    st.write(f"📌 Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
+    st.write(f"📌 Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
+    st.write(f"📌 Ação: **{st.session_state.SITUACAO_USUARIO}**")
 
     st.write("")
     st.success("✅ Solicitação registrada com sucesso!")
     st.write("Você já pode pegar o livro na estante da Biblioteca Expertise")
 
 elif st.session_state.SITUACAO_USUARIO == 'Devolução':
-    if st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'] == st.session_state.LOGIN:
+    if st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'].strip() == st.session_state.LOGIN.strip():
         alterar_status_biblioteca(json_path=json_path, scope=scope, 
                                 LOGIN=st.session_state.LOGIN, 
                                 SITUACAO='Disponível', 
                                 ID_LIVRO=st.session_state.ID_LIVRO, 
                                 data=st.session_state.dados)
-        st.write(f"Usuário: **{st.session_state.LOGIN}**")
-        st.write(f"ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
-        st.write(f"Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
-        st.write(f"Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
-        st.write(f"Ação: **{st.session_state.SITUACAO_USUARIO}**")
+        st.write(f"📌 Usuário: **{st.session_state.LOGIN}**")
+        st.write(f"📌 ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
+        st.write(f"📌 Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
+        st.write(f"📌 Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
+        st.write(f"📌 Ação: **{st.session_state.SITUACAO_USUARIO}**")
 
         st.write("")
         st.success("✅ Solicitação registrada com sucesso!")
