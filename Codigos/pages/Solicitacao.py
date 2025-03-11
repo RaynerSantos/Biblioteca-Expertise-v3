@@ -153,6 +153,9 @@ if "SITUACAO_USUARIO" not in st.session_state or "ID_LIVRO" not in st.session_st
     st.stop()
 
 st.title("Retorno da solicitação")
+st.write(f"📌 LOGIN: {st.session_state.LOGIN} (Tipo: {type(st.session_state.LOGIN)})")
+st.write(f"📌 FUNCIONARIO: {st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO']} (Tipo: {type(st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'])})")
+
 
 if st.session_state.SITUACAO_USUARIO == 'Empréstimo' and st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Disponível':
     alterar_status_biblioteca(json_path=json_path, scope=scope, 
