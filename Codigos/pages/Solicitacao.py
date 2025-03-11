@@ -171,19 +171,22 @@ if st.session_state.SITUACAO_USUARIO == 'Empréstimo' and st.session_state.dados
     st.write("Você já pode pegar o livro na estante da Biblioteca Expertise")
 
 elif st.session_state.SITUACAO_USUARIO == 'Devolução':
-    alterar_status_biblioteca(json_path=json_path, scope=scope, 
-                              LOGIN=st.session_state.LOGIN, 
-                              SITUACAO='Disponível', 
-                              ID_LIVRO=st.session_state.ID_LIVRO, 
-                              data=st.session_state.dados)
-    st.write(f"Usuário: **{st.session_state.LOGIN}**")
-    st.write(f"ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
-    st.write(f"Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
-    st.write(f"Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
-    st.write(f"Ação: **{st.session_state.SITUACAO_USUARIO}**")
+    if st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Disponível':
+        alterar_status_biblioteca(json_path=json_path, scope=scope, 
+                                LOGIN=st.session_state.LOGIN, 
+                                SITUACAO='Disponível', 
+                                ID_LIVRO=st.session_state.ID_LIVRO, 
+                                data=st.session_state.dados)
+        st.write(f"Usuário: **{st.session_state.LOGIN}**")
+        st.write(f"ID do Livro selecionado: **{st.session_state.ID_LIVRO}**")
+        st.write(f"Título: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'TITULO']}**")
+        st.write(f"Autor: **{st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'AUTOR']}**")
+        st.write(f"Ação: **{st.session_state.SITUACAO_USUARIO}**")
 
-    st.write("")
-    st.success("✅ Solicitação registrada com sucesso!")
-    st.write("Favor devolver o livro na estante da Biblioteca Expertise")
+        st.write("")
+        st.success("✅ Solicitação registrada com sucesso!")
+        st.write("Favor devolver o livro na estante da Biblioteca Expertise")
+    else:
+        st.warning("❌ Livro já se encontra disponível no momento. Não há necessidade de devolução.")
 else:
     st.warning("❌ Livro desejado não está disponível no momento.")
