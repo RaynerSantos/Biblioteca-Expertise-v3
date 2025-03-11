@@ -153,8 +153,6 @@ if "SITUACAO_USUARIO" not in st.session_state or "ID_LIVRO" not in st.session_st
     st.stop()
 
 st.title("Retorno da solicitação")
-st.write(f"📌 LOGIN: {st.session_state.LOGIN} (Tipo: {type(st.session_state.LOGIN)})")
-st.write(f"📌 FUNCIONARIO: {st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO']} (Tipo: {type(st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'])})")
 
 
 if st.session_state.SITUACAO_USUARIO == 'Empréstimo' and st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Disponível':
@@ -189,8 +187,8 @@ elif st.session_state.SITUACAO_USUARIO == 'Devolução':
         st.write("")
         st.success("✅ Solicitação registrada com sucesso!")
         st.write("Favor devolver o livro na estante da Biblioteca Expertise")
-
-    elif st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.LOGIN != st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO']:
+    
+    elif st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'SITUACAO'] == 'Emprestado' and st.session_state.LOGIN.strip() != st.session_state.dados.loc[int(st.session_state.ID_LIVRO)-1,'FUNCIONARIO'].strip():
         st.warning("❌ Você não pode devolver um livro que se encontra emprestado por outro login.")
             
     else:
