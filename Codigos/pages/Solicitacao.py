@@ -188,10 +188,8 @@ elif st.session_state.SITUACAO_USUARIO == 'Devolução':
             st.write("")
             st.success("✅ Solicitação registrada com sucesso!")
             st.write("Favor devolver o livro na estante da Biblioteca Expertise")
-    
         else:
-            st.warning("❌ Você não pode devolver um livro que se encontra emprestado por outro login.")
-            
+            st.warning("❌ Você não pode devolver um livro que se encontra emprestado por outro login.")      
     else:
         st.warning("❌ Livro já se encontra disponível no momento. Não há necessidade de devolução.")
 else:
