@@ -17,3 +17,6 @@ df = pd.read_csv(url)
 
 # Exibir o DataFrame
 print(df)
+
+from datetime import datetime
+print(datetime.today())

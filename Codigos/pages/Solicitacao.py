@@ -4,7 +4,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
 import json
-import datetime
+from datetime import datetime
 
 #=== 1º Passo - Função para buscar a tabela desejada no google sheets ===#
 def buscar_biblioteca(json_path, scope, worksheet):
