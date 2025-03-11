@@ -88,8 +88,8 @@ json_path = "C:\PROJETOS\Biblioteca Expertise\biblioteca-expertise-4613ccbc3a7a.
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
 # Se o usuário não estiver autenticado, redireciona para a página inicial
-if "login_sucesso" not in st.session_state or not st.session_state.login_sucesso:
-    st.warning("❌ Você precisa fazer login!")
+if "login_admin_sucesso" not in st.session_state or not st.session_state.login_admin_sucesso:
+    st.warning("❌ Você precisa fazer login de administrador para entrar nessa página!")
     st.stop()
 
 # Criar um estado de sessão para verificar login

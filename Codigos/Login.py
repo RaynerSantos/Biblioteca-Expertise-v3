@@ -96,6 +96,10 @@ st.title("Biblioteca Expertise")
 if "login_sucesso" not in st.session_state:
     st.session_state.login_sucesso = False
 
+# Criar um estado de sessão para verificar login de administrador
+if "login_admin_sucesso" not in st.session_state:
+    st.session_state.login_admin_sucesso = False
+
 # Formulário de login
 with st.form(key="login"):
     LOGIN = st.text_input(label="Insira o seu login de acesso")
@@ -110,6 +114,8 @@ if input_buttom_submit:
         st.session_state.LOGIN = LOGIN  # Salva o usuário na sessão
         st.session_state.SENHA = SENHA # Salva a senha do usuário na sessão
         st.rerun()  # Recarrega a página para aplicar a mudança
+        if LOGIN == 'admin':
+            st.session_state.login_admin_sucesso = True
     else:
         st.warning("❌ Login ou senha incorretos!")
 
