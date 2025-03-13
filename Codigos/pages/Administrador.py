@@ -126,3 +126,37 @@ if input_buttom_submit:
     st.session_state.solicitacao_admin = True  # Define o estado do solicitacao do administrador como verdadeiro
     # Redireciona para a página Solicitacao_admin.py
     st.switch_page("pages/Solicitacao_admin.py")
+
+
+
+# Linha divisória horizontal
+# st.markdown("<hr>", unsafe_allow_html=True)
+st.write("")
+st.write("")
+st.write("📑 Lista de Logins e senhas")
+
+# Buscar dados da biblioteca
+acessos = buscar_biblioteca(json_path=json_path, scope=scope, worksheet='Logins')
+st.session_state.acessos = acessos
+
+# Exibir os dados
+st.dataframe(acessos, width=1500, height=500, hide_index=True)
+
+st.write("")  # Linha vazia
+st.write("*Informe abaixo o título e autor do livro que deseja incluir na Biblioteca Expertise*")
+
+#=== Criar formulário ===#
+with st.form(key='inserir_logins'):
+    LOGIN_incluir = st.text_input(label="Informe o LOGIN que seja deseja incluir")
+    SENHA_incluir = st.text_input(label='Informe a nova SENHA que deseja incluir para o login acima')
+    NOME_COMPLETO = st.text_input(label='Informe o nome completo do novo usuário')
+    input_buttom_submit_acessos = st.form_submit_button("Enviar")
+    st.session_state.LOGIN_incluir = LOGIN_incluir
+    st.session_state.SENHA_incluir = SENHA_incluir
+    st.session_state.NOME_COMPLETO = NOME_COMPLETO
+
+# Se o botão for pressionado:
+if input_buttom_submit_acessos:
+    st.session_state.solicitacao_admin = True  # Define o estado do solicitacao do administrador como verdadeiro
+    # Redireciona para a página Solicitacao_admin.py
+    st.switch_page("pages/Acessos.py")
