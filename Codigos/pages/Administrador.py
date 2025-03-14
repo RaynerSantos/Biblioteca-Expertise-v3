@@ -92,10 +92,6 @@ if "login_admin_sucesso" not in st.session_state or not st.session_state.login_a
     st.warning("❌ Você precisa fazer login de administrador para entrar nessa página!")
     st.stop()
 
-# Criar um estado de sessão para verificar login
-if "solicitacao_admin" not in st.session_state:
-    st.session_state.solicitacao_admin = False
-
 # Título da nova página
 st.title("Biblioteca Expertise")
 st.write("")  # Linha vazia
@@ -123,9 +119,9 @@ with st.form(key='inserir_livros'):
 
 # Se o botão for pressionado:
 if input_buttom_submit:
-    st.session_state.solicitacao_admin = True  # Define o estado do solicitacao do administrador como verdadeiro
-    # Redireciona para a página Solicitacao_admin.py
-    st.switch_page("pages/Solicitacao_admin.py")
+    st.session_state.SOLICITACAO_ADMIN_LIVRO = True # Define o estado do solicitacao do administrador como verdadeiro
+    # Redireciona para a página Solicitacao_admin.py 
+    st.switch_page("pages/Solicitacao.py")
 
 
 
@@ -157,6 +153,8 @@ with st.form(key='inserir_logins'):
 
 # Se o botão for pressionado:
 if input_buttom_submit_acessos:
-    st.session_state.solicitacao_admin = True  # Define o estado do solicitacao do administrador como verdadeiro
+    st.session_state.SOLICITACAO_ADMIN_ACESSOS = True # Define o estado do solicitacao do administrador como verdadeiro
+    if st.session_state.TITULO == "":
+        st.session_state.SOLICITACAO_ADMIN_LIVRO = False
     # Redireciona para a página Solicitacao_admin.py
     st.switch_page("pages/Acessos.py")

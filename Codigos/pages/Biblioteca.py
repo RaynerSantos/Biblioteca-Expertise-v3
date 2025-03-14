@@ -187,5 +187,6 @@ if input_buttom_submit:
         # Salvar os dados no session_state para a próxima página
         st.session_state.SITUACAO_USUARIO = SITUACAO_USUARIO
         st.session_state.ID_LIVRO = ID_LIVRO
+        st.session_state.SOLICITACAO_LIVRO = True
         # Redireciona para a página Solicitacao.py
         st.switch_page("pages/Solicitacao.py")

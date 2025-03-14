@@ -86,6 +86,13 @@ json_path = "C:\PROJETOS\Biblioteca Expertise\biblioteca-expertise-4613ccbc3a7a.
 # Definir escopo de acesso
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
+SOLICITACAO_LIVRO = False
+SOLICITACAO_ADMIN_LIVRO = False
+SOLICITACAO_ADMIN_ACESSOS = False
+st.session_state.SOLICITACAO_LIVRO = SOLICITACAO_LIVRO
+st.session_state.SOLICITACAO_ADMIN_LIVRO = SOLICITACAO_ADMIN_LIVRO
+st.session_state.SOLICITACAO_ADMIN_ACESSOS = SOLICITACAO_ADMIN_ACESSOS
+
 # # Configurações da página
 # st.set_page_config(layout="centered")  # "wide" / "centered"
 
@@ -124,4 +131,4 @@ if st.session_state.login_sucesso and LOGIN == 'admin':
     st.switch_page("pages/Administrador.py")
 
 elif st.session_state.login_sucesso:
-    st.switch_page("pages/Livros.py")
+    st.switch_page("pages/Biblioteca.py")
