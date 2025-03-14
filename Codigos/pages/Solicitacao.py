@@ -98,8 +98,18 @@ def alterar_status_biblioteca(json_path, scope, LOGIN, SITUACAO, ID_LIVRO, data)
 #=== 3º Passo - Inserção de livros ===#
 def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR):
     if LOGIN == 'admin' and st.session_state.SENHA == 'Exp2025$':
-        # Autenticar no Google Sheets
-        credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
+        # # Autenticar no Google Sheets
+        # credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
+        # client = gspread.authorize(credentials)
+
+        # Carregar credenciais do Streamlit Secrets
+        gcp_credentials = st.secrets["GCP_SERVICE_ACCOUNT"]
+
+        # Converter a string JSON em um dicionário Python
+        credentials_dict = json.loads(gcp_credentials)
+
+        # Criar credenciais a partir do dicionário JSON
+        credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
         client = gspread.authorize(credentials)
 
         # Acessar a planilha
@@ -128,8 +138,18 @@ def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR):
 #=== 4º Passo - Inserção de Logins ===#
 def adicionar_login(json_path, scope, LOGIN, LOGIN_incluir, SENHA_incluir, NOME_COMPLETO):
     if LOGIN == 'admin' and st.session_state.SENHA == 'Exp2025$':
-        # Autenticar no Google Sheets
-        credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
+        # # Autenticar no Google Sheets
+        # credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
+        # client = gspread.authorize(credentials)
+
+        # Carregar credenciais do Streamlit Secrets
+        gcp_credentials = st.secrets["GCP_SERVICE_ACCOUNT"]
+
+        # Converter a string JSON em um dicionário Python
+        credentials_dict = json.loads(gcp_credentials)
+
+        # Criar credenciais a partir do dicionário JSON
+        credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
         client = gspread.authorize(credentials)
 
         # Acessar a planilha

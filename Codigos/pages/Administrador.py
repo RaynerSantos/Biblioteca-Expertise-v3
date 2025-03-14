@@ -157,4 +157,4 @@ if input_buttom_submit_acessos:
     if st.session_state.TITULO == "":
         st.session_state.SOLICITACAO_ADMIN_LIVRO = False
     # Redireciona para a página Solicitacao_admin.py
-    st.switch_page("pages/Acessos.py")
+    st.switch_page("pages/Solicitacao.py")
