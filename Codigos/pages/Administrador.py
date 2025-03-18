@@ -143,7 +143,7 @@ st.write("*Informe abaixo o título e autor do livro que deseja incluir na Bibli
 
 #=== Criar formulário ===#
 with st.form(key='inserir_logins'):
-    LOGIN_incluir = st.text_input(label="Informe o LOGIN que seja deseja incluir")
+    LOGIN_incluir = st.text_input(label="Informe o LOGIN que deseja incluir")
     SENHA_incluir = st.text_input(label='Informe a nova SENHA que deseja incluir para o login acima')
     NOME_COMPLETO = st.text_input(label='Informe o nome completo do novo usuário')
     input_buttom_submit_acessos = st.form_submit_button("Enviar")
