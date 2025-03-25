@@ -68,8 +68,8 @@ def alterar_status_biblioteca(json_path, scope, LOGIN, SITUACAO, ID_LIVRO, data)
 
     elif SITUACAO == 'Disponível':
         data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'SITUACAO'] = 'Disponível'
-        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'FUNCIONARIO'] = 'NULL'
-        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'DATA_EMPRESTIMO'] = 'NULL'
+        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'FUNCIONARIO'] = ''
+        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'DATA_EMPRESTIMO'] = ''
 
         # # Autenticar no Google Sheets
         # credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)

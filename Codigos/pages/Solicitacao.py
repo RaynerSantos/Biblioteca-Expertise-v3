@@ -67,8 +67,8 @@ def alterar_status_biblioteca(json_path, scope, LOGIN, SITUACAO, ID_LIVRO, data)
 
     elif SITUACAO == 'Disponível':
         data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'SITUACAO'] = 'Disponível'
-        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'FUNCIONARIO'] = 'NULL'
-        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'DATA_EMPRESTIMO'] = 'NULL'
+        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'FUNCIONARIO'] = ''
+        data.loc[data['ID_LIVRO'].astype(int)==int(ID_LIVRO), 'DATA_EMPRESTIMO'] = ''
 
         # # Autenticar no Google Sheets
         # credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
@@ -127,7 +127,7 @@ def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR):
             novo_n_livro = 1  # Se não houver livros, começa em 1
 
         # Criar a nova linha com os dados
-        nova_linha = [novo_n_livro, TITULO, AUTOR, "NULL", "NULL", "Disponível"]
+        nova_linha = [novo_n_livro, TITULO, AUTOR, "Disponível", "", ""]
 
         # Adicionar a nova linha no final da planilha
         sheet.append_row(nova_linha)
