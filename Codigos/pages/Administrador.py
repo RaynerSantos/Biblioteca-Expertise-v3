@@ -113,9 +113,13 @@ st.write("*Informe abaixo o título e autor do livro que deseja incluir na Bibli
 with st.form(key='inserir_livros'):
     TITULO = st.text_input(label="Informe o nome do Título do livro que deseja incluir")
     AUTOR = st.text_input(label='Informe o nome do Autor do livro que deseja incluir')
+    CATEGORIA = st.text_input(label='Informe a categoria do livro')
+    SINOPSE = st.text_input(label='Informe a sinopse do livro')
     input_buttom_submit = st.form_submit_button("Enviar")
     st.session_state.TITULO = TITULO
     st.session_state.AUTOR = AUTOR
+    st.session_state.CATEGORIA = CATEGORIA
+    st.session_state.SINOPSE = SINOPSE
 
 # Se o botão for pressionado:
 if input_buttom_submit:

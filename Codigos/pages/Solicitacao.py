@@ -96,7 +96,7 @@ def alterar_status_biblioteca(json_path, scope, LOGIN, SITUACAO, ID_LIVRO, data)
     return
 
 #=== 3º Passo - Inserção de livros ===#
-def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR):
+def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR, CATEGORIA, SINOPSE):
     if LOGIN == 'admin' and st.session_state.SENHA == 'Exp2025$':
         # # Autenticar no Google Sheets
         # credentials = ServiceAccountCredentials.from_json_keyfile_name(json_path, scope)
@@ -127,7 +127,7 @@ def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR):
             novo_n_livro = 1  # Se não houver livros, começa em 1
 
         # Criar a nova linha com os dados
-        nova_linha = [novo_n_livro, TITULO, AUTOR, "Disponível", "", ""]
+        nova_linha = [novo_n_livro, TITULO, AUTOR, CATEGORIA, "Disponível", "", "", SINOPSE]
 
         # Adicionar a nova linha no final da planilha
         sheet.append_row(nova_linha)
@@ -272,7 +272,9 @@ if st.session_state.SOLICITACAO_ADMIN_LIVRO:
     adicionar_livro(json_path=json_path, scope=scope, 
                     LOGIN=st.session_state.LOGIN, 
                     TITULO=st.session_state.TITULO, 
-                    AUTOR=st.session_state.AUTOR)
+                    AUTOR=st.session_state.AUTOR,
+                    CATEGORIA=st.session_state.CATEGORIA,
+                    SINOPSE=st.session_state.SINOPSE)
     
     st.write(f"📌 Usuário: **{st.session_state.LOGIN}**")
     st.write(f"📌 Título: **{st.session_state.TITULO}**")
