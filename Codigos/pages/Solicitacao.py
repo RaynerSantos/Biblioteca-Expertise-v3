@@ -127,7 +127,7 @@ def adicionar_livro(json_path, scope, LOGIN, TITULO, AUTOR, CATEGORIA, SINOPSE):
             novo_n_livro = 1  # Se não houver livros, começa em 1
 
         # Criar a nova linha com os dados
-        nova_linha = [novo_n_livro, TITULO, AUTOR, CATEGORIA, "Disponível", "", "", SINOPSE]
+        nova_linha = [novo_n_livro, TITULO, AUTOR, "Disponível", CATEGORIA, "", "", SINOPSE]
 
         # Adicionar a nova linha no final da planilha
         sheet.append_row(nova_linha)
